@@ -37,6 +37,8 @@ def main():
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     if args.check:
+        import coordination  # noqa: F401  确认领域模块可整体导入
+
         assert health_payload()["service"] == SERVICE_ID
         print("基础检查通过")
         return
